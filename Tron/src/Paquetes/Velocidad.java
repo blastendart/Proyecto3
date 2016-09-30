@@ -3,16 +3,19 @@ package Paquetes;
 
 public class Velocidad {
 	
-	int cont = Crono.temporizador();
-	boolean rapido = false;
+	
+	boolean Prapido = false;
 	int posV = 0;
 	int posM = 0;
 	
 	public void velocidadAct(){
 		if (posV == posM);
-			rapido = true;
-			
-		
+			int cont = Crono.temporizador();
+			while (cont < 10);{
+				Prapido = true;
+			Prapido = false;
+			}
+					
 			
 	}
 	

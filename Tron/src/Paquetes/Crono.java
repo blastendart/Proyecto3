@@ -6,13 +6,13 @@ public class Crono{
 	
 		public static int temporizador(){
 			
-	    for (segundos= 0; segundos < 6; segundos ++)
+	    for (segundos= 0; segundos < 10; segundos ++)
 	    {
+	    System.out.println(segundos); //tentativo cambio de boolean 
 	    cuentaSegundos();
-	    //return segundos;
+	 
 	     
-	    } 
-	    //System.out.println("Listos"); //tentativo cambio de boolean 
+	    }  
 		return segundos;
 	    }
 	
