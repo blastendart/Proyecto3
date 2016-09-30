@@ -5,20 +5,19 @@ public class Velocidad {
 	
 	
 	boolean Prapido = false;
-	int posV = 0;
-	int posM = 0;
+	static int posV = 0;
+	static int posM = 0;
 	
-	public void velocidadAct(){
+	public static int velocidadAct(){
 		if (posV == posM);
-			int cont = Crono.temporizador();
-			while (cont < 10);{
-				Prapido = true;
-			Prapido = false;
-			}
-					
+			return 0;
 			
+			
+					
+	/* int cont = Crono.temporizador();
+	while (cont < 10);{
+		Prapido = true; */
 	}
 	
-	
-	
+
 }

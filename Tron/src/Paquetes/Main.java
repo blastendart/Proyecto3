@@ -13,8 +13,9 @@ public class Main {
 		
 		//Pila que recibe los poderes al momento de que la moto pase sobre ellos
 		Stack PilaPoderes = new Stack();
-		PilaPoderes.push("Velocidad.getdato()");
+		PilaPoderes.push(Velocidad.velocidadAct());
 		//System.out.println(PilaPoderes.peek());
+		
 	}
 
 }
