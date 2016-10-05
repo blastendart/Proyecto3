@@ -17,11 +17,11 @@ public class Crono{
 	
 	       
 
-	private static void cuentaSegundos(){ //
+	private static void cuentaSegundos(){ //método encargado de calcular el tiempo real
 	    try{
-	    Thread.sleep(1000);
+	    Thread.sleep(1000); //mediante el conteo de ejecusiones se calcula un segundo
 	    }
-	    catch(Exception e){}
+	    catch(Exception e){} //captura excepciones para evitar errores
 		
 	}
 }
