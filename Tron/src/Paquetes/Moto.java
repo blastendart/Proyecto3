@@ -20,10 +20,10 @@ public class Moto extends JPanel{
 	
 	private Image img;
 
-	public Moto(display f, images i){
+	public Moto(Manejador Ventana, Objetos O){
 		moto = new Rectangle(200, 200, tamX, tamY);
   
-		f.addKeyListener(new KeyAdapter(){
+		Ventana.addKeyListener(new KeyAdapter(){
    
 	public void keyPressed(KeyEvent e){
 	   if(e.getKeyCode() == KeyEvent.VK_D){
@@ -58,7 +58,6 @@ public class Moto extends JPanel{
   
  }
 	
-
 	public void paintComponent (Graphics g){
 	 
 		Image img11 = new ImageIcon(getClass().getResource("/Archivos/moto1.1.png")).getImage();
