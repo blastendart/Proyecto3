@@ -6,52 +6,52 @@ import java.awt.event.*;
 import java.util.Random;
 
 
-public class keying extends JPanel{
+public class Moto extends JPanel{
  
-	public Rectangle character;
+	public Rectangle moto;
  
-	public int charW = 25;
-	public int charH = 25;
+	public int tamY = 25;
+	public int tamX = 25;
  
-	public boolean right = false;
-	public boolean left = false;
-	public boolean down = false;
-	public boolean up = false;
-
+	public boolean derecha = false;
+	public boolean izquierda = false;
+	public boolean arriba = false;
+	public boolean abajo = false;
+	
 	private Image img;
 
-	public keying(display f, images i){
-		character = new Rectangle(200, 200, charW, charH );
+	public Moto(display f, images i){
+		moto = new Rectangle(200, 200, tamX, tamY);
   
 		f.addKeyListener(new KeyAdapter(){
    
 	public void keyPressed(KeyEvent e){
 	   if(e.getKeyCode() == KeyEvent.VK_D){
-		   right = true;
+		   derecha = true;
 	   }
 	   if(e.getKeyCode() == KeyEvent.VK_A){
-		   left = true;
+		   izquierda = true;
 	   }
 	   if(e.getKeyCode() == KeyEvent.VK_W){
-		   up = true;
+		   arriba = true;
        	}
 	   if(e.getKeyCode() == KeyEvent.VK_S){
-		   down = true;
+		   abajo = true;
 	   }
 	}
   
 	public void keyReleased(KeyEvent e){
 		if(e.getKeyCode() == KeyEvent.VK_D){
-			right = false;
+			derecha = false;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_A){
-			left = false;
+			izquierda = false;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_W){
-			up = false;
+			arriba = false;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_S){
-			down = false;
+			abajo = false;
 		}
 	}
   });  
@@ -69,27 +69,27 @@ public class keying extends JPanel{
 		this.setBackground(Color.WHITE);
 		//g.setColor(Color.BLACK);
 		//g.fillRect(character.x, character.y, character.width, character.height);
-		g.drawImage(img, character.x, character.y, this);
+		g.drawImage(img, moto.x, moto.y, this);
 		
-	if(right){
+	if(derecha){
 		img = img13;
 		//g.drawImage(img13, character.x, character.y, this);
-		character.x += 1;
+		moto.x += 1;
 	}
-	if(left){
+	if(izquierda){
 		img = img14;
 		//g.drawImage(img14, character.x, character.y, this);
-		character.x -= 1;
+		moto.x -= 1;
 	}
-	if(up){
+	if(arriba){
 		img = img11;
 		//g.drawImage(img11, character.x, character.y, this);
-		character.y -= 1;
+		moto.y -= 1;
 	}
-	if(down){
+	if(abajo){
 		img = img12;  
 		//g.drawImage(img12, character.x, character.y, this);
-		character.y += 1;
+		moto.y += 1;
 	}
 	repaint();
  }
