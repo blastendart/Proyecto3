@@ -3,7 +3,6 @@ package Paquetes;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Random;
 
 
 public class Moto extends JPanel{
@@ -19,6 +18,10 @@ public class Moto extends JPanel{
 	public boolean abajo = false;
 	
 	private Image img;
+
+	public static int posY;
+
+	public static int posX;
 
 	public Moto(Manejador Ventana, Objetos O){
 		moto = new Rectangle(200, 200, tamX, tamY);
@@ -59,7 +62,8 @@ public class Moto extends JPanel{
  }
 	
 	public void paintComponent (Graphics g){
-	 
+		
+		
 		Image img11 = new ImageIcon(getClass().getResource("/Archivos/moto1.1.png")).getImage();
 		Image img12 = new ImageIcon(getClass().getResource("/Archivos/moto1.2.png")).getImage();
 		Image img13 = new ImageIcon(getClass().getResource("/Archivos/moto1.3.png")).getImage();
@@ -68,30 +72,43 @@ public class Moto extends JPanel{
 		this.setBackground(Color.WHITE);
 		//g.setColor(Color.BLACK);
 		//g.fillRect(character.x, character.y, character.width, character.height);
-		g.drawImage(img, moto.x, moto.y, this);
+		g.drawImage(img, getposX(), getposY(), this);
+	
 		
 	if(derecha){
 		img = img13;
-		//g.drawImage(img13, character.x, character.y, this);
-		moto.x += 1;
+		setposX(posX + 1);
 	}
 	if(izquierda){
 		img = img14;
-		//g.drawImage(img14, character.x, character.y, this);
-		moto.x -= 1;
+		setposX(posX - 1);
 	}
 	if(arriba){
 		img = img11;
-		//g.drawImage(img11, character.x, character.y, this);
-		moto.y -= 1;
+		setposY(posY - 1);
 	}
 	if(abajo){
 		img = img12;  
-		//g.drawImage(img12, character.x, character.y, this);
-		moto.y += 1;
+		setposY(posY + 1);
 	}
 	repaint();
  }
 
+	public static int getposY() {
+		return posY;
+	}
 
+	public void setposY(int posY) {
+		this.posY = posY;
+	}
+
+	public static int getposX() {
+		return posX;
+	}
+
+	public void setposX(int posX) {
+		this.posX = posX;
+	}
+	
+ 
 }
