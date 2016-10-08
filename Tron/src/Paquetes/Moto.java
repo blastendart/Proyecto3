@@ -6,12 +6,13 @@ import java.awt.event.*;
 
 
 public class Moto extends JPanel{
- 
+	//se crea el objeto rectángulo y se le asignan variables
 	public Rectangle moto;
  
 	public int tamY = 25;
 	public int tamX = 25;
  
+	//variables para dirigir los movimientos de "moto"
 	public boolean derecha = false;
 	public boolean izquierda = false;
 	public boolean arriba = false;
@@ -22,12 +23,15 @@ public class Moto extends JPanel{
 	public static int posY;
 
 	public static int posX;
-
+	
+	
+	//Se crea un objeto a partir del rectangulo "moto"
 	public Moto(Manejador Ventana, Objetos O){
 		moto = new Rectangle(200, 200, tamX, tamY);
   
 		Ventana.addKeyListener(new KeyAdapter(){
    
+	//Se asignan los casos para cuando se oprime las diferentes teclas que darán movimiento a la moto
 	public void keyPressed(KeyEvent e){
 	   if(e.getKeyCode() == KeyEvent.VK_D){
 		   derecha = true;
@@ -61,8 +65,8 @@ public class Moto extends JPanel{
   
  }
 	
+	//Se cargan imágenes y que se dibujarán sobre el rectángulo
 	public void paintComponent (Graphics g){
-		
 		
 		Image img11 = new ImageIcon(getClass().getResource("/Archivos/moto1.1.png")).getImage();
 		Image img12 = new ImageIcon(getClass().getResource("/Archivos/moto1.2.png")).getImage();
@@ -70,11 +74,11 @@ public class Moto extends JPanel{
 		Image img14 = new ImageIcon(getClass().getResource("/Archivos/moto1.4.png")).getImage();
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
-		//g.setColor(Color.BLACK);
-		//g.fillRect(character.x, character.y, character.width, character.height);
 		g.drawImage(img, getposX(), getposY(), this);
 	
-		
+	/*Para los casos que se oprime una tecla y las variables se vuelven true se define como afectarán 
+		la posición de la moto, así como la imagen correspondiente a la dirección que lleva.
+	*/	
 	if(derecha){
 		img = img13;
 		setposX(posX + 1);
@@ -93,7 +97,8 @@ public class Moto extends JPanel{
 	}
 	repaint();
  }
-
+	//Getters and Setters de las variables para conectarlos a las diferentes clases del programa
+	
 	public static int getposY() {
 		return posY;
 	}

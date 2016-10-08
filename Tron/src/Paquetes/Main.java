@@ -12,6 +12,8 @@ public class Main {
 	public static int altura = 450;
 	public static void  main(String args[]){
 		
+		//Se crea una ventana inicial
+
 		Ventana.setSize(largo, altura);
 		Ventana.setResizable(true);
 		Ventana.setVisible(true);
@@ -20,6 +22,7 @@ public class Main {
 		Ventana.setLocationRelativeTo(null);
 		Ventana.setAlwaysOnTop(true);
 		
+		//Monitoreo de la posición que está tomando la moto.
 		
 		while (true){
 		System.out.println(Moto.getposX());
