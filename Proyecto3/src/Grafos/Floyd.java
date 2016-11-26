@@ -1,10 +1,101 @@
 package Grafos;
 
+import java.io.*;
+
 public class Floyd {
+
+static int [ ][ ]floyd;
+
+static BufferedReader leer=new BufferedReader(new InputStreamReader(System.in));
+
+public static void main() {
+
+int n=0;
+
+try {
+
+System.out.print("Ingrese n (tamaño de la matriz n X n) : ");
+
+n=Integer.parseInt(leer.readLine());
+
+floyd=new int[n][n];
+
+for (int i=0;i<n;i++)
+
+for (int j=0;j<n;j++)
+
+{
+
+System.out.println("Inserte la componente W(" + i + ")(" + j +")");
+
+floyd[i][j]=Integer.parseInt(leer.readLine());
+
+}
+
+}
+
+catch(Exception e){}
+
+for (int k=0;k<=n-1;k++)
+
+{
+
+for (int i=0;i<=n-1;i++)
+
+{for (int j=0;j<=n-1;j++)
+
+if ((floyd[i][k]!=-1)&&(floyd[k][j]!=-1))
+
+floyd[i][j]=funcionfloyd(floyd[i][j],floyd[i][k]+floyd[k][j]);}
+
+}
+
+System.out.println("Matriz de adyacencia correspondiente: ");
+
+for (int i=0;i<n;i++)
+
+{
+
+for (int j=0;j<n;j++)
+
+System.out.print(" – "+floyd[i][j]);
+
+System.out.println();
+
+}
+
+}
+
+public static int funcionfloyd(int A, int B)
+
+{
+
+if ((A==-1)&&(B==-1))
+
+return -1;
+
+else if (A==-1)
+
+return B;
+
+else if (B==-1)
+
+return A;
+
+else if (A>B)
+
+return B;
+
+else return A;
+
+}      
+}
+
+/*public class Floyd {
 	//
-	public String algoritmoFloyd(long [][] MatrizP){
-		int vertices = MatrizP.length;
-		long MatrizAdy[] [] = MatrizP;
+	public String algoritmoFloyd(long [][] mAdy){
+		int vertices = mAdy.length;
+		long MatrizAdy[] [] = mAdy;
 		String camino[][] = new String[vertices][vertices];
 		String caminoAux[][] = new String[vertices][vertices];
 		String caminoRec= "", cadena="",recorrido="";
@@ -42,9 +133,9 @@ public class Floyd {
 			for(j=0;j<vertices;j++){
 				cadena = cadena+"["+MatrizAdy[i][j]+"]";
 			}
-		cadena+="\n";
+		cadena=cadena+"\n";
 		}
-		//////////////////////////////////////////77
+		//////////////////////////////////////////
 		for(i=0;i<vertices;i++){
 			for(j=0;j<vertices;j++){
 				if(MatrizAdy[i][j]!=1000000000){
@@ -59,8 +150,7 @@ public class Floyd {
 				}
 			}
 		}
-		return "La Matriz que ha resultado es: \n"+cadena+
-				"\nLos caminos son\n"+recorrido;
+		return "La Matriz que ha resultado es: \n"+cadena+"\nLos caminos son\n"+recorrido;
 	}
 	public String caminoRecursivo(int i, int k, String[][] caminoAux, String caminoRec){
 		if(caminoAux[i][k].equals("")){
@@ -72,4 +162,4 @@ public class Floyd {
 			return caminoRec;
 		}
 	}
-}
+} */
