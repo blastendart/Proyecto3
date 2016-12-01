@@ -3,6 +3,11 @@ package Grafos;
 import java.util.Random;
 
 public class GeneraMatriz{
+	
+	public int contador(long[][] matriz){
+		int cont = matriz.length;
+		return cont;
+	}
 
 	public Object aleatoria(){
 		
@@ -44,9 +49,27 @@ public class GeneraMatriz{
 		return Matriz;
 	}
 	
+
+	public Object alActualizada(long[][] matriz){
+		int cont = matriz.length;
+		long MatrizAux[][] = new long[cont+1][cont+1]; 
+        for(int i=0;i<cont;i++){
+        	for(int j=0;j<cont;j++){
+        		MatrizAux[i][j] = matriz[i][j];
+        	}
+        }
+        
+		//System.out.println(MatrizAux);
+		return MatrizAux;
+	}
+	
 	public Object nuevoNodo(){
 		
-		int j = 31;
+		GeneraMatriz prueba = new GeneraMatriz();		
+		Object matriz = (Object) prueba.aleatoria();
+		
+		GeneraMatriz numero = new GeneraMatriz();			
+		int j = numero.contador((long[][]) matriz)+1;
 		int info[] = new int [j];
 		int i = 0;
 
@@ -56,7 +79,7 @@ public class GeneraMatriz{
 			if (i == j-1){
 				
 				info[i] = 0;
-				System.out.print(info[i]+", ");
+				//System.out.print(info[i]+", ");
 				i += 1;
 			}
 			else{
@@ -66,12 +89,12 @@ public class GeneraMatriz{
 					Random rnd2 = new Random();
 					int rand2 = (int)(rnd2.nextDouble() * 30 + 1);
 					info[i] = rand2;
-					System.out.print(info[i]+", ");
+					//System.out.print(info[i]+", ");
 					i += 1;
 				}
 				else{
-					info[i] = -1;
-					System.out.print(info[i]+", ");
+					info[i] = 999999999;
+					//System.out.print(info[i]+", ");
 					i += 1;
 				}
 			}
